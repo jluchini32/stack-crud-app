@@ -2,10 +2,20 @@ const express = require('express');
 const router  = express.Router();
 const Sushi  = require('../models/sushi');
 
+//index route
+router.get('/', (req, res) =>{
+Sushi.find({}, (error, createASushi) => {
+
+    if(error){
+    res.send(error);
+    } else {
+        res.render('index.ejs', {sushi: createASushi});
+    }
+})
+});
 
 
-
-//new route
+//create route
 router.post('/', (req, res) => {
 console.log(req.body,"<-- req.body will have the contents of the form");
 
@@ -24,6 +34,7 @@ Sushi.create(req.body, (err, createASushi) => {
 });
 });
 
+//new route
 router.get('/new', (req, res) => {
     res.render('new.ejs');
    });

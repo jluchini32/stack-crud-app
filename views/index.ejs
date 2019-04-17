@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sushi Index</title>
 </head>
+<h1>Sushi Menu:</h1>
+
+<ul class="sushi-list">
+    <% for(let i = 0; i < sushi.length; i++){ %>
+<li>
+    The <a href="/sushi/<%=sushi[i]._id%>"><%=sushi[i].name; %></a> is made of <%=sushi[i].fish; %>.
+    <% if(sushi[i].readyToEat === true){ %>
+        It is ready to eat
+    <% } else { %>
+        It is not ready to eat
+    <% } %>
+</li>
+<% } %>
+
+</ul>
 <body>
-    <h1>Sushi</h1>
 </body>
 </html>
