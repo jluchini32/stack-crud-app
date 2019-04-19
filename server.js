@@ -5,12 +5,12 @@ const methodOverride  = require('method-override');
 
 require('./db/db');
 
-const sushiController = require('./controllers/sushi');
+const coffeeController = require('./controllers/coffee.js');
 
 
 app.use(bodyParser.urlencoded({extended: false})) 
 app.use(methodOverride('_method'))
-app.use('/sushi', sushiController);
+app.use('/coffee', coffeeController);
 
 
 

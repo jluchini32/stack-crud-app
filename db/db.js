@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const connectionString = 'mongodb://localhost/Sushi';
+const connectionString = 'mongodb://localhost/coffee';
 
 // THis is actually connecting to mongodb server that is running
 // on another port on our computer
@@ -12,13 +12,13 @@ mongoose.connect(connectionString, {
 });
 
 mongoose.connection.on('connected', () => {
-  console.log(`Mogoose connected to ${connectionString}`);
+  console.log(`Mongoose connected to ${connectionString}`);
 });
 
 mongoose.connection.on('disconnected', () => {
-  console.log(`Mogoose disconnected from ${connectionString}`);
+  console.log(`Mongoose disconnected from ${connectionString}`);
 });
 
 mongoose.connection.on('error', (err) => {
-  console.log(`Mogoose error: ${err}`);
+  console.log(`Mongoose error: ${err}`);
 });

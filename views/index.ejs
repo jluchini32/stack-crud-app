@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sushi Index</title>
+    <title>Coffee Index</title>
 </head>
-<h1>Sushi Menu:</h1>
+<h1>Coffee List:</h1>
 
-<ul class="sushi-list">
-    <% for(let i = 0; i < sushi.length; i++){ %>
-<li>
-    The <a href="/sushi/<%=sushi[i]._id%>"><%=sushi[i].name; %></a> is made of <%=sushi[i].fish; %>.
-    <% if(sushi[i].readyToEat === true){ %>
-        It is ready to eat
+<ul class="coffee-list">
+    <% for(let i = 0; i < coffee.length; i++) { %>
+    <li>
+    The brand of coffee is <a href="/coffee/<%=coffee[i]._id%>"><%=coffee[i].name; %></a> and the flavor is <%=coffee[i].type; %>.
+    <% if(coffee[i].isInstant === true){ %>
+         It is ready to drink
     <% } else { %>
-        It is not ready to eat
+        It is ready to drink
     <% } %>
-</li>
+
+    <a href="/coffee/<%=coffee[i].id; %>/edit">Edit Coffee</a>
+
+    <form action="/coffee/<%=coffee[i]._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+    </li>
 <% } %>
 </ul>
 
+
+
 <nav>
-<a href="/sushi/new">Create New Sushi</a>
+<a href="/coffee/new">Create New Coffee</a>
 </nav>
 <body>
 </body>
